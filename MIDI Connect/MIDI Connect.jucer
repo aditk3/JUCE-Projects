@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<JUCERPROJECT id="SyfFxc" name="MIDI Connect" projectType="guiapp" useAppConfig="0"
+              addUsingNamespaceToJuceHeader="1" displaySplashScreen="1" jucerFormatVersion="1">
+  <MAINGROUP id="OMHf0N" name="MIDI Connect">
+    <GROUP id="{08F3E94D-18A9-4D2D-73F4-8AF9D39FB93A}" name="Source">
+      <FILE id="kqsrV5" name="MainApplication.cpp" compile="1" resource="0"
+            file="Source/MainApplication.cpp"/>
+      <FILE id="mqJaBq" name="MainApplication.h" compile="0" resource="0"
+            file="Source/MainApplication.h"/>
+      <FILE id="rIDmqU" name="MainComponent.cpp" compile="1" resource="0"
+            file="Source/MainComponent.cpp"/>
+      <FILE id="aOa1lf" name="MainComponent.h" compile="0" resource="0" file="Source/MainComponent.h"/>
+      <FILE id="DLbfA5" name="MainWindow.cpp" compile="1" resource="0" file="Source/MainWindow.cpp"/>
+      <FILE id="QEvI9W" name="MainWindow.h" compile="0" resource="0" file="Source/MainWindow.h"/>
+      <FILE id="sHVtbl" name="MidiMessageLog.cpp" compile="1" resource="0"
+            file="Source/MidiMessageLog.cpp"/>
+      <FILE id="JNEYr4" name="MidiMessageLog.h" compile="0" resource="0"
+            file="Source/MidiMessageLog.h"/>
+      <FILE id="pZQpfw" name="MidiPianoRoll.cpp" compile="1" resource="0"
+            file="Source/MidiPianoRoll.cpp"/>
+      <FILE id="wl6Bra" name="MidiPianoRoll.h" compile="0" resource="0" file="Source/MidiPianoRoll.h"/>
+      <FILE id="RRFTxH" name="SFZeroAudioProcessor.cpp" compile="1" resource="0"
+            file="Source/SFZeroAudioProcessor.cpp"/>
+      <FILE id="O58rJH" name="SFZeroAudioProcessor.h" compile="0" resource="0"
+            file="Source/SFZeroAudioProcessor.h"/>
+    </GROUP>
+    <GROUP id="{6A4C47E5-C936-8E7B-BD49-024A45E8EEFC}" name="Resources">
+      <GROUP id="{2DAC428D-82B7-0D64-A284-493E777A2FCB}" name="A112-Piano1d-2">
+        <FILE id="huBlBt" name="3f-021-A0.wav" compile="0" resource="1" file="Resources/A112-Piano1d-2/3f-021-A0.wav"
+              xcodeResource="1"/>
+        <FILE id="m9Tziz" name="3f-024-C1.wav" compile="0" resource="1" file="Resources/A112-Piano1d-2/3f-024-C1.wav"
+              xcodeResource="1"/>
+        <FILE id="SQ60jC" name="3f-027-D#1.wav" compile="0" resource="1" file="Resources/A112-Piano1d-2/3f-027-D#1.wav"
+              xcodeResource="1"/>
+        <FILE id="yfWnJI" name="3f-030-F#1.wav" compile="0" resource="1" file="Resources/A112-Piano1d-2/3f-030-F#1.wav"
+              xcodeResource="1"/>
+        <FILE id="KdCUkx" name="3f-033-A1.wav" compile="0" resource="1" file="Resources/A112-Piano1d-2/3f-033-A1.wav"
+              xcodeResource="1"/>
+        <FILE id="CsCgoE" name="3f-036-C2.wav" compile="0" resource="1" file="Resources/A112-Piano1d-2/3f-036-C2.wav"
+              xcodeResource="1"/>
+        <FILE id="z0cuBt" name="3f-039-D#2.wav" compile="0" resource="1" file="Resources/A112-Piano1d-2/3f-039-D#2.wav"
+              xcodeResource="1"/>
+        <FILE id="cxMFUI" name="3f-042-F#2.wav" compile="0" resource="1" file="Resources/A112-Piano1d-2/3f-042-F#2.wav"
+              xcodeResource="1"/>
+        <FILE id="SAxqyx" name="3f-045-A2.wav" compile="0" resource="1" file="Resources/A112-Piano1d-2/3f-045-A2.wav"
+              xcodeResource="1"/>
+        <FILE id="WEVeZb" name="3f-048-C3.wav" compile="0" resource="1" file="Resources/A112-Piano1d-2/3f-048-C3.wav"
+              xcodeResource="1"/>
+        <FILE id="lz5T9u" name="3f-051-D#3.wav" compile="0" resource="1" file="Resources/A112-Piano1d-2/3f-051-D#3.wav"
+              xcodeResource="1"/>
+        <FILE id="JkUfrJ" name="3f-054-F#3.wav" compile="0" resource="1" file="Resources/A112-Piano1d-2/3f-054-F#3.wav"
+              xcodeResource="1"/>
+        <FILE id="VNxSGM" name="3f-057-A3.wav" compile="0" resource="1" file="Resources/A112-Piano1d-2/3f-057-A3.wav"
+              xcodeResource="1"/>
+        <FILE id="PpICTO" name="3f-060-C4.wav" compile="0" resource="1" file="Resources/A112-Piano1d-2/3f-060-C4.wav"
+              xcodeResource="1"/>
+        <FILE id="aPmkfH" name="3f-063-D#4.wav" compile="0" resource="1" file="Resources/A112-Piano1d-2/3f-063-D#4.wav"
+              xcodeResource="1"/>
+        <FILE id="FS4FjW" name="3f-066-F#4.wav" compile="0" resource="1" file="Resources/A112-Piano1d-2/3f-066-F#4.wav"
+              xcodeResource="1"/>
+        <FILE id="TOQkOU" name="3f-069-A4.wav" compile="0" resource="1" file="Resources/A112-Piano1d-2/3f-069-A4.wav"
+              xcodeResource="1"/>
+        <FILE id="bwUGyC" name="3f-072-C5.wav" compile="0" resource="1" file="Resources/A112-Piano1d-2/3f-072-C5.wav"
+              xcodeResource="1"/>
+        <FILE id="zbacB9" name="3f-075-D#5.wav" compile="0" resource="1" file="Resources/A112-Piano1d-2/3f-075-D#5.wav"
+              xcodeResource="1"/>
+        <FILE id="aesNp4" name="3f-078-F#5.wav" compile="0" resource="1" file="Resources/A112-Piano1d-2/3f-078-F#5.wav"
+              xcodeResource="1"/>
+        <FILE id="um90cg" name="3f-081-A5.wav" compile="0" resource="1" file="Resources/A112-Piano1d-2/3f-081-A5.wav"
+              xcodeResource="1"/>
+        <FILE id="kLE0lb" name="3f-084-C6.wav" compile="0" resource="1" file="Resources/A112-Piano1d-2/3f-084-C6.wav"
+              xcodeResource="1"/>
+        <FILE id="eZ591a" name="3f-087-D#6.wav" compile="0" resource="1" file="Resources/A112-Piano1d-2/3f-087-D#6.wav"
+              xcodeResource="1"/>
+        <FILE id="yAY30x" name="3f-090-F#6.wav" compile="0" resource="1" file="Resources/A112-Piano1d-2/3f-090-F#6.wav"
+              xcodeResource="1"/>
+        <FILE id="oPn6WO" name="3f-093-A6.wav" compile="0" resource="1" file="Resources/A112-Piano1d-2/3f-093-A6.wav"
+              xcodeResource="1"/>
+        <FILE id="JvL7lQ" name="3f-096-C7.wav" compile="0" resource="1" file="Resources/A112-Piano1d-2/3f-096-C7.wav"
+              xcodeResource="1"/>
+        <FILE id="HN3wDF" name="3f-099-D#7.wav" compile="0" resource="1" file="Resources/A112-Piano1d-2/3f-099-D#7.wav"
+              xcodeResource="1"/>
+        <FILE id="LotlLU" name="3f-102-F#7.wav" compile="0" resource="1" file="Resources/A112-Piano1d-2/3f-102-F#7.wav"
+              xcodeResource="1"/>
+        <FILE id="sPn2vf" name="3f-105-A7.wav" compile="0" resource="1" file="Resources/A112-Piano1d-2/3f-105-A7.wav"
+              xcodeResource="1"/>
+        <FILE id="BxmZsx" name="3f-108-C8.wav" compile="0" resource="1" file="Resources/A112-Piano1d-2/3f-108-C8.wav"
+              xcodeResource="1"/>
+        <FILE id="k6Wkp0" name="G800-A112-Piano1d-2-3f.sfz" compile="0" resource="1"
+              file="Resources/A112-Piano1d-2/G800-A112-Piano1d-2-3f.sfz" xcodeResource="1"/>
+      </GROUP>
+    </GROUP>
+  </MAINGROUP>
+  <JUCEOPTIONS JUCE_STRICT_REFCOUNTEDPOINTER="1"/>
+  <EXPORTFORMATS>
+    <XCODE_MAC targetFolder="Builds/MacOSX">
+      <CONFIGURATIONS>
+        <CONFIGURATION isDebug="1" name="Debug" targetName="MIDI Connect"/>
+        <CONFIGURATION isDebug="0" name="Release" targetName="MIDI Connect"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_audio_basics" path="../../../../../../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_devices" path="../../../../../../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_formats" path="../../../../../../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_processors" path="../../../../../../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_utils" path="../../../../../../JUCE/modules"/>
+        <MODULEPATH id="juce_core" path="../../../../../../JUCE/modules"/>
+        <MODULEPATH id="juce_data_structures" path="../../../../../../JUCE/modules"/>
+        <MODULEPATH id="juce_events" path="../../../../../../JUCE/modules"/>
+        <MODULEPATH id="juce_graphics" path="../../../../../../JUCE/modules"/>
+        <MODULEPATH id="juce_gui_basics" path="../../../../../../JUCE/modules"/>
+        <MODULEPATH id="juce_gui_extra" path="../../../../../../JUCE/modules"/>
+        <MODULEPATH id="SFZero" path="Source"/>
+      </MODULEPATHS>
+    </XCODE_MAC>
+  </EXPORTFORMATS>
+  <MODULES>
+    <MODULE id="juce_audio_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_devices" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_formats" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_processors" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_utils" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_core" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_data_structures" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_events" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_graphics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_gui_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_gui_extra" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="SFZero" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
+  </MODULES>
+  <LIVE_SETTINGS>
+    <OSX/>
+  </LIVE_SETTINGS>
+</JUCERPROJECT>
