@@ -22,24 +22,24 @@ void PianoRollNote::paint(Graphics& g) {
 
 MidiPianoRoll::MidiPianoRoll() { setFramesPerSecond(FPS); }
 
-MidiPianoRoll::~MidiPianoRoll() {}
+MidiPianoRoll::~MidiPianoRoll() { clear(); }
 
 void MidiPianoRoll::clear() { notes.clear(); }
 
 void MidiPianoRoll::paint(Graphics& g) { g.fillAll(Colours::black); }
 
 void MidiPianoRoll::update() {
-    for (int i = 0; i < notes.size(); i++) {
+    for (int i = 0; i < notes.size(); ++i) {
         if (!notes[i].get()->haveNoteOff) {
-            notes[i].get()->setBounds(0, notes[i].get()->getY(), notes[i].get()->getWidth() + PPF,
+            notes[i].get()->setBounds(notes[i].get()->getX(), notes[i].get()->getY(), notes[i].get()->getWidth() + PPF,
                                       notes[i].get()->getHeight());
         } else {
             notes[i].get()->setBounds(notes[i].get()->getX() + PPF, notes[i].get()->getY(), notes[i].get()->getWidth(),
                                       notes[i].get()->getHeight());
-            
-            if (notes[i].get()->getX() > getWidth()) {
-                notes.erase(notes.begin() + i);
-            }
+
+            //            if (notes[i].get()->getX() > getWidth()) {
+            //                notes.erase(notes.begin() + i);
+            //            }
         }
     }
 }
@@ -53,6 +53,8 @@ void MidiPianoRoll::addMidiMessage(const MidiMessage& msg) {
 
         notes[notes.size() - 1]->setBounds(0, height, 0, noteHeight);
         addAndMakeVisible(notes[notes.size() - 1].get());
+
+        DBG(notes.size());
     }
 
     if (msg.isNoteOff()) {

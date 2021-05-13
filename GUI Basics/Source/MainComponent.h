@@ -1,21 +1,17 @@
-  //==============================================================================
-  // MainComponent.h
-  // This file defines the class representing our main window content component.
-  //==============================================================================
+//==============================================================================
+// MainComponent.h
+// This file defines the class representing our main window content component.
+//==============================================================================
 
-  #pragma once
+#pragma once
 
-  #include "../JuceLibraryCode/JuceHeader.h"
+#include "../JuceLibraryCode/JuceHeader.h"
 
-  /// MainComponent lives inside our window and defines almost all the app's GUI
-  /// controls and content.  MainComponent inherits from three "listener" (callback)
-  /// classes so it can respond to mouse input from the user.
-  class MainComponent :
-        public Component,
-        public Button::Listener,
-        public Slider::Listener,
-        public ComboBox::Listener {
-  public:
+/// MainComponent lives inside our window and defines almost all the app's GUI
+/// controls and content.  MainComponent inherits from three "listener" (callback)
+/// classes so it can respond to mouse input from the user.
+class MainComponent : public Component, public Button::Listener, public Slider::Listener, public ComboBox::Listener {
+   public:
     /// The MainComponent constructor.
     /// Your method should perform the following actions:
     /// * For each GUI subcomponent call MainComponent::addAndMakeVisible() and pass it the subcomponent
@@ -65,7 +61,7 @@
     /// Make the size of each square in the checkerboard one ninth the width and
     /// height of the component. The alternating colors for the squares should be
     /// juce::Colours::lightgrey and juce::Colours::white.
-    void paint (Graphics&) override;
+    void paint(Graphics&) override;
 
     /// The resized() method is called to update subcomponent positions and sizes.
     /// Your method should perform the following actions:
@@ -76,7 +72,8 @@
     /// * Set clearButton's width to 120.
     /// * colorMenu's width is 100 and it is positioned 8 pixels to the right of clearButton.
     /// * transparencyLabel's width is 100 and it is positioned 8 pixels to the right of colorMenu.
-    /// * transparencySlider's is positioned to the right of transparencyLabel and its width is the remainder of the line.
+    /// * transparencySlider's is positioned to the right of transparencyLabel and its width is the remainder of the
+    /// line.
     /// * fontSizeLabel's width is 70.
     /// * fontSizeSlider's width is 80 and it is positioned to the right of fontSizeLabel.
     /// * fontStyleLabel's width is 80 and it is positioned 24 pixels to the right of fontStyleLabel.
@@ -122,16 +119,16 @@
     void sliderValueChanged(Slider* sliderMoved) override;
 
     /// Lets our component respond to combo menu changes.
-    void comboBoxChanged(ComboBox* menu) override ;
+    void comboBoxChanged(ComboBox* menu) override;
 
     //==============================================================================
     // MainComponent members
-    
+
     /// Sets the window's text for the given textId, one of LATIN_TEXT, CYRILLIC_TEXT,
     /// or GREEK_TEXT.
     void setTextForId(const int textId);
 
-  private:
+   private:
     /// Initialize textButton to "Clear Message"
     TextButton clearButton;
     /// Initialize transparencyLabel to  "Transparency:"
@@ -157,23 +154,26 @@
     /// Initialize textFont to "Times", size 15.0 and style plain. See: juce::Font.
     Font textFont;
     /// Initialize the colors array to navy, purple, darkred, darkgreen, black. See: juce::Colours.
-    std::vector<Colour> colors {Colours::navy, Colours::purple, Colours::darkred, Colours::darkgreen, Colours::black};
-            
+    std::vector<Colour> colors{Colours::navy, Colours::purple, Colours::darkred, Colours::darkgreen, Colours::black};
+
     /// Latin text (from http://generator.lorem-ipsum.info)
-    String latinText {"Lorem ipsum dolor sit amet, labores deseruisse vix in, ex nobis eruditi qui! Id amet commune sit, at per oportere iudicabit intellegat, fabulas quaerendum in eum. Ut laudem equidem mea, copiosae inimicus consequat ius et? Ad pri augue labores expetenda, phaedrum postulant eu pro. Ei etiam vidisse petentium per?"};
+    String latinText{
+        "Lorem ipsum dolor sit amet, labores deseruisse vix in, ex nobis eruditi qui! Id amet commune sit, at per "
+        "oportere iudicabit intellegat, fabulas quaerendum in eum. Ut laudem equidem mea, copiosae inimicus consequat "
+        "ius et? Ad pri augue labores expetenda, phaedrum postulant eu pro. Ei etiam vidisse petentium per?"};
     /// Greek text requires CharPointer_UTF8 so string chars are interpreted as UTF8.
-    CharPointer_UTF8 greekText {"Λορεμ ιπσθμ δολορ σιτ αμετ, qθι αν αθτεμ ηαβεμθσ, τε vιμ σιντ τατιον ινιμιcθσ, αν νθμqθαμ ιραcθνδια vιξ. Μει ινιμιcθσ σιγνιφερθμqθε εθ. Τατιον ποστεα γραεcισ σεα νε, προ αμετ ομνιθμ cομμθνε ατ. Παρτεμ ομνιθμ μεα εα, ορνατθσ τηεοπηραστθσ ετ."};
+    CharPointer_UTF8 greekText{
+        "Λορεμ ιπσθμ δολορ σιτ αμετ, qθι αν αθτεμ ηαβεμθσ, τε vιμ σιντ τατιον ινιμιcθσ, αν νθμqθαμ ιραcθνδια vιξ. Μει "
+        "ινιμιcθσ σιγνιφερθμqθε εθ. Τατιον ποστεα γραεcισ σεα νε, προ αμετ ομνιθμ cομμθνε ατ. Παρτεμ ομνιθμ μεα εα, "
+        "ορνατθσ τηεοπηραστθσ ετ."};
     /// Cyrillic text requires CharPointer_UTF8 so string chars are interpreted as UTF8.
-    CharPointer_UTF8 cyrillicText {"Лорем ипсум долор сит амет, еи долоре путент еирмод иус, моллис луцилиус еа хис. Мел цасе фацилисис те, хомеро цорпора праесент сед ин, аццусата губергрен либерависсе те еум! Еа вел легимус витуперата, утамур делицатиссими вел ан. Яуи но цонгуе лаборес. Пер амет аугуе дебет еу. Иус еи цонгуе легере."};
-            
-    enum MenuColours{
-        navy = 1,
-        purple,
-        brown,
-        green,
-        black
-    };
-    
+    CharPointer_UTF8 cyrillicText{
+        "Лорем ипсум долор сит амет, еи долоре путент еирмод иус, моллис луцилиус еа хис. Мел цасе фацилисис те, "
+        "хомеро цорпора праесент сед ин, аццусата губергрен либерависсе те еум! Еа вел легимус витуперата, утамур "
+        "делицатиссими вел ан. Яуи но цонгуе лаборес. Пер амет аугуе дебет еу. Иус еи цонгуе легере."};
+
+    enum MenuColours { navy = 1, purple, brown, green, black };
+
     //==============================================================================
-    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (MainComponent)
-  };
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(MainComponent)
+};

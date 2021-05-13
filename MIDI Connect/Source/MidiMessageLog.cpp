@@ -44,7 +44,7 @@ const String MidiMessageLog::midiMessageString(const MidiMessage& msg) {
                      ", key=" + String(msg.getNoteNumber()) + ", velocity=" + String(msg.getVelocity()) +
                      ", pitch=" + keynumToPitch(msg.getNoteNumber()) +
                      ", freq=" + String(keynumToFrequency(msg.getNoteNumber()));
-        
+
         return str;
     }
 
@@ -56,8 +56,8 @@ const String MidiMessageLog::midiMessageString(const MidiMessage& msg) {
     }
 
     if (msg.isProgramChange()) {
-        String str = "[" + String(msg.getTimeStamp()) + "] " + "ProgramChange" + ": channel=" + String(msg.getChannel()) +
-                     ", number=" + String(msg.getProgramChangeNumber());
+        String str = "[" + String(msg.getTimeStamp()) + "] " + "ProgramChange" +
+                     ": channel=" + String(msg.getChannel()) + ", number=" + String(msg.getProgramChangeNumber());
 
         return str;
     }
@@ -70,8 +70,10 @@ const String MidiMessageLog::midiMessageString(const MidiMessage& msg) {
     }
 
     if (msg.isController()) {
-        String str = "[" + String(msg.getTimeStamp()) + "] " + "ControlChange" + ": channel=" + String(msg.getChannel()) +
-                     ", controller=" + String(msg.getControllerName(msg.getControllerNumber())) + ", value=" + String(msg.getControllerValue());
+        String str = "[" + String(msg.getTimeStamp()) + "] " + "ControlChange" +
+                     ": channel=" + String(msg.getChannel()) +
+                     ", controller=" + String(msg.getControllerName(msg.getControllerNumber())) +
+                     ", value=" + String(msg.getControllerValue());
 
         return str;
     }
@@ -85,7 +87,7 @@ String MidiMessageLog::keynumToPitch(int keynum) {
     using namespace std;
     map<int, String> pNDict = {{0, "C"},  {1, "C#"}, {2, "D"},  {3, "Eb"}, {4, "E"},   {5, "F"},
                                {6, "F#"}, {7, "G"},  {8, "Ab"}, {9, "A"},  {10, "Bb"}, {11, "B"}};
-    
+
     int pitchClass = keynum % 12;
     int octave = keynum / 12;
 

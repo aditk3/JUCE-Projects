@@ -1,7 +1,8 @@
 //==============================================================================
 
-#include "MainApplication.h"
 #include "MainComponent.h"
+
+#include "MainApplication.h"
 
 using namespace std;
 
@@ -162,7 +163,7 @@ void MainComponent::sliderValueChanged(Slider* slider) {
 void MainComponent::comboBoxChanged(ComboBox* menu) {
     if (menu == &waveformMenu) {
         waveformId = WaveformId(waveformMenu.getSelectedId());
-        
+
         auto id = waveformId;
         if (id == WhiteNoise || id == BrownNoise) {
             freqSlider.setEnabled(false);
@@ -171,9 +172,9 @@ void MainComponent::comboBoxChanged(ComboBox* menu) {
             freqSlider.setEnabled(true);
             freqLabel.setEnabled(true);
         }
-        
-//        audioSourcePlayer.setSource(this);
-//        drawPlayButton(playButton, !isPlaying());
+
+        //        audioSourcePlayer.setSource(this);
+        //        drawPlayButton(playButton, !isPlaying());
     }
 }
 
@@ -534,21 +535,20 @@ void MainComponent::BL_impulseWave(const AudioSourceChannelInfo& bufferToFill) {
 void MainComponent::BL_squareWave(const AudioSourceChannelInfo& bufferToFill) {
     auto const chan0 = bufferToFill.buffer->getWritePointer(0, bufferToFill.startSample);
 
-        for (auto sampleIdx = 0; sampleIdx < bufferToFill.numSamples; ++sampleIdx) {
-            auto p = phasor();
-            int numHarmonics = 0;
-            if (freq != 0)
-                numHarmonics = srate / 2 / freq;
-            
-            chan0[sampleIdx] = 0;
+    for (auto sampleIdx = 0; sampleIdx < bufferToFill.numSamples; ++sampleIdx) {
+        auto p = phasor();
+        int numHarmonics = 0;
+        if (freq != 0) numHarmonics = srate / 2 / freq;
 
-            for (auto h = 1; h <= numHarmonics; ++h) {
-                if (h % 2 == 1)
-                    chan0[sampleIdx] += (sin(TwoPi * p * h) / h) * level;
-                else
-                    chan0[sampleIdx] += 0;
-            }
+        chan0[sampleIdx] = 0;
+
+        for (auto h = 1; h <= numHarmonics; ++h) {
+            if (h % 2 == 1)
+                chan0[sampleIdx] += (sin(TwoPi * p * h) / h) * level;
+            else
+                chan0[sampleIdx] += 0;
         }
+    }
 
     auto const channelData = bufferToFill.buffer->getWritePointer(1, bufferToFill.startSample);
     std::memcpy(channelData, chan0, bufferToFill.numSamples * sizeof(float));
@@ -561,17 +561,15 @@ void MainComponent::BL_squareWave(const AudioSourceChannelInfo& bufferToFill) {
 void MainComponent::BL_sawtoothWave(const AudioSourceChannelInfo& bufferToFill) {
     auto const chan0 = bufferToFill.buffer->getWritePointer(0, bufferToFill.startSample);
 
-        for (auto sampleIdx = 0; sampleIdx < bufferToFill.numSamples; ++sampleIdx) {
-            auto p = phasor();
-            int numHarmonics = 0;
-            if (freq != 0)
-                numHarmonics = srate / 2 / freq;
-            
-            chan0[sampleIdx] = 0;
+    for (auto sampleIdx = 0; sampleIdx < bufferToFill.numSamples; ++sampleIdx) {
+        auto p = phasor();
+        int numHarmonics = 0;
+        if (freq != 0) numHarmonics = srate / 2 / freq;
 
-            for (auto h = 1; h <= numHarmonics; ++h)
-                chan0[sampleIdx] += (sin(TwoPi * p * h) / h) * level;
-        }
+        chan0[sampleIdx] = 0;
+
+        for (auto h = 1; h <= numHarmonics; ++h) chan0[sampleIdx] += (sin(TwoPi * p * h) / h) * level;
+    }
 
     auto const channelData = bufferToFill.buffer->getWritePointer(1, bufferToFill.startSample);
     std::memcpy(channelData, chan0, bufferToFill.numSamples * sizeof(float));
@@ -586,29 +584,28 @@ void MainComponent::BL_triangleWave(const AudioSourceChannelInfo& bufferToFill) 
     auto const chan0 = bufferToFill.buffer->getWritePointer(0, bufferToFill.startSample);
     //        double normalizedLevel = level / numHarmonics;
 
-            for (auto sampleIdx = 0; sampleIdx < bufferToFill.numSamples; ++sampleIdx) {
-                auto p = phasor();
-                int numHarmonics = 0;
-                if (freq != 0)
-                    numHarmonics = srate / 2 / freq;
-                
-                chan0[sampleIdx] = 0;
+    for (auto sampleIdx = 0; sampleIdx < bufferToFill.numSamples; ++sampleIdx) {
+        auto p = phasor();
+        int numHarmonics = 0;
+        if (freq != 0) numHarmonics = srate / 2 / freq;
 
-                for (auto h = 1; h <= numHarmonics; ++h) {
-                    auto a = level / std::pow(h, 2);
-                    if (h % 2 == 1)
-                        chan0[sampleIdx] += sin(TwoPi * p * h) * a;
-                    else
-                        chan0[sampleIdx] += 0;
-                }
-            }
+        chan0[sampleIdx] = 0;
+
+        for (auto h = 1; h <= numHarmonics; ++h) {
+            auto a = level / std::pow(h, 2);
+            if (h % 2 == 1)
+                chan0[sampleIdx] += sin(TwoPi * p * h) * a;
+            else
+                chan0[sampleIdx] += 0;
+        }
+    }
 
     //        for (int channelNum = 1; channelNum < bufferToFill.buffer->getNumChannels(); ++channelNum) {
     //            auto const channelData = bufferToFill.buffer->getWritePointer(channelNum, bufferToFill.startSample);
     //            std::memcpy(channelData, chan0, bufferToFill.numSamples * sizeof(float));
     //        }
-        auto const channelData = bufferToFill.buffer->getWritePointer(1, bufferToFill.startSample);
-        std::memcpy(channelData, chan0, bufferToFill.numSamples * sizeof(float));
+    auto const channelData = bufferToFill.buffer->getWritePointer(1, bufferToFill.startSample);
+    std::memcpy(channelData, chan0, bufferToFill.numSamples * sizeof(float));
 }
 
 //==============================================================================
@@ -616,9 +613,7 @@ void MainComponent::BL_triangleWave(const AudioSourceChannelInfo& bufferToFill) 
 //==============================================================================
 
 // The audio block loop
-void inline MainComponent::WT_wave(const AudioSourceChannelInfo& bufferToFill) {
-    
-}
+void inline MainComponent::WT_wave(const AudioSourceChannelInfo& bufferToFill) {}
 
 // Create a sine wave table
 void MainComponent::createSineTable(AudioSampleBuffer& waveTable) {

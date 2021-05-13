@@ -1,8 +1,9 @@
 //==============================================================================
 
+#include "MainWindow.h"
+
 #include "MainApplication.h"
 #include "MainComponent.h"
-#include "MainWindow.h"
 
 MainWindow::MainWindow(String name) : DocumentWindow(name, Colours::white, DocumentWindow::allButtons) {
     setUsingNativeTitleBar(true);
@@ -23,6 +24,4 @@ MainWindow::MainWindow(String name) : DocumentWindow(name, Colours::white, Docum
 //==============================================================================
 // DocumentWindow overrides
 
-void MainWindow::closeButtonPressed() {
-    JUCEApplication::getInstance()->systemRequestedQuit();
-}
+void MainWindow::closeButtonPressed() { JUCEApplication::getInstance()->systemRequestedQuit(); }

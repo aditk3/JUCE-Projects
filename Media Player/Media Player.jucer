@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<JUCERPROJECT id="EFDCmt" name="Media Player" projectType="guiapp" useAppConfig="0"
+              displaySplashScreen="1" jucerFormatVersion="1" addUsingNamespaceToJuceHeader="1">
+  <MAINGROUP id="b5Lkds" name="Media Player">
+    <GROUP id="{9F92C802-FB05-469B-2E54-85800EA9147F}" name="Source">
+      <FILE id="yfuE7L" name="MainApplication.cpp" compile="1" resource="0"
+            file="Source/MainApplication.cpp"/>
+      <FILE id="V3LwUi" name="MainApplication.h" compile="0" resource="0"
+            file="Source/MainApplication.h"/>
+      <FILE id="QR2C7A" name="MainComponent.cpp" compile="1" resource="0"
+            file="Source/MainComponent.cpp"/>
+      <FILE id="AaFOAy" name="MainComponent.h" compile="0" resource="0" file="Source/MainComponent.h"/>
+      <FILE id="QnnxnJ" name="MainWindow.cpp" compile="1" resource="0" file="Source/MainWindow.cpp"/>
+      <FILE id="Ct6hkW" name="MainWindow.h" compile="0" resource="0" file="Source/MainWindow.h"/>
+      <FILE id="m6okg8" name="MediaManager.cpp" compile="1" resource="0"
+            file="Source/MediaManager.cpp"/>
+      <FILE id="tJbRJd" name="MediaManager.h" compile="0" resource="0" file="Source/MediaManager.h"/>
+      <FILE id="DJFvBs" name="MediaManagerData.cpp" compile="1" resource="0"
+            file="Source/MediaManagerData.cpp"/>
+      <FILE id="jXCdWD" name="MediaManagerData.h" compile="0" resource="0"
+            file="Source/MediaManagerData.h"/>
+      <FILE id="DTqGE5" name="MidiPlaybackThread.h" compile="0" resource="0"
+            file="Source/MidiPlaybackThread.h"/>
+      <FILE id="Ojo7yX" name="Transport.cpp" compile="1" resource="0" file="Source/Transport.cpp"/>
+      <FILE id="XLIRDe" name="Transport.h" compile="0" resource="0" file="Source/Transport.h"/>
+      <FILE id="x1eAvk" name="ValueTreeWrapper.h" compile="0" resource="0"
+            file="Source/ValueTreeWrapper.h"/>
+    </GROUP>
+  </MAINGROUP>
+  <JUCEOPTIONS JUCE_STRICT_REFCOUNTEDPOINTER="1"/>
+  <EXPORTFORMATS>
+    <XCODE_MAC targetFolder="Builds/MacOSX">
+      <CONFIGURATIONS>
+        <CONFIGURATION isDebug="1" name="Debug" targetName="Media Player"/>
+        <CONFIGURATION isDebug="0" name="Release" targetName="Media Player"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_audio_basics" path="../../../../../../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_devices" path="../../../../../../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_formats" path="../../../../../../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_processors" path="../../../../../../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_utils" path="../../../../../../JUCE/modules"/>
+        <MODULEPATH id="juce_core" path="../../../../../../JUCE/modules"/>
+        <MODULEPATH id="juce_cryptography" path="../../../../../../JUCE/modules"/>
+        <MODULEPATH id="juce_data_structures" path="../../../../../../JUCE/modules"/>
+        <MODULEPATH id="juce_events" path="../../../../../../JUCE/modules"/>
+        <MODULEPATH id="juce_graphics" path="../../../../../../JUCE/modules"/>
+        <MODULEPATH id="juce_gui_basics" path="../../../../../../JUCE/modules"/>
+        <MODULEPATH id="juce_gui_extra" path="../../../../../../JUCE/modules"/>
+        <MODULEPATH id="juce_opengl" path="../../../../../../JUCE/modules"/>
+        <MODULEPATH id="juce_video" path="../../../../../../JUCE/modules"/>
+      </MODULEPATHS>
+    </XCODE_MAC>
+  </EXPORTFORMATS>
+  <MODULES>
+    <MODULE id="juce_audio_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_devices" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_formats" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_processors" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_utils" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_core" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_cryptography" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_data_structures" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_events" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_graphics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_gui_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_gui_extra" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_opengl" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_video" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+  </MODULES>
+  <LIVE_SETTINGS>
+    <OSX/>
+  </LIVE_SETTINGS>
+</JUCERPROJECT>

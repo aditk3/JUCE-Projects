@@ -1,6 +1,7 @@
 //==============================================================================
 
 #include "MainApplication.h"
+
 #include "MainComponent.h"
 #include "MainWindow.h"
 
@@ -24,7 +25,12 @@ const File MainApplication::getRuntimeResourceDirectory() {
     return File::getSpecialLocation(File::currentApplicationFile);
 #endif
 #if JUCE_LINUX
-    return File::getSpecialLocation(File::currentApplicationFile).getParentDirectory().getParentDirectory().getParentDirectory().getParentDirectory().getChildFile("Resources");
+    return File::getSpecialLocation(File::currentApplicationFile)
+        .getParentDirectory()
+        .getParentDirectory()
+        .getParentDirectory()
+        .getParentDirectory()
+        .getChildFile("Resources");
 #endif
     // else
     jassert(false);
@@ -48,7 +54,7 @@ bool MainApplication::moreThanOneInstanceAllowed() { return false; }
 void MainApplication::initialise(const String& commandLine) {
     auto errorMessage = audioDeviceManager.initialise(0, 2, nullptr, true);
     jassert(errorMessage.isEmpty());
-    
+
     mainWindow = std::make_unique<MainWindow>(getApplicationName());
 }
 

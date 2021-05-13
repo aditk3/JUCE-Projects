@@ -1,7 +1,8 @@
 //==============================================================================
 
-#include "MainApplication.h"
 #include "MainComponent.h"
+
+#include "MainApplication.h"
 
 MainContentComponent::MainContentComponent() : audioManager(MainApplication::getApp().getAudioDeviceManager()) {
     addAndMakeVisible(settingsButton);
@@ -94,23 +95,17 @@ void MainContentComponent::buttonClicked(Button* button) {
     }
 
     if (button == &messageLogButton) {
-        pianoRollButton.setToggleState(false, dontSendNotification);
-        messageLogButton.setToggleState(true, dontSendNotification);
         midiMessageLog.clear();
-        midiPianoRoll.clear();
-        keyboardState.reset();
-        midiMessageLog.setVisible(true);
-        midiPianoRoll.setVisible(false);
+        addChildComponent(&midiMessageLog);
+        addAndMakeVisible(&midiMessageLog);
+        removeChildComponent(&midiPianoRoll);
     }
 
     if (button == &pianoRollButton) {
-        messageLogButton.setToggleState(false, dontSendNotification);
-        pianoRollButton.setToggleState(true, dontSendNotification);
-        midiMessageLog.clear();
         midiPianoRoll.clear();
-        keyboardState.reset();
-        midiMessageLog.setVisible(false);
-        midiPianoRoll.setVisible(true);
+        addChildComponent(&midiPianoRoll);
+        addAndMakeVisible(&midiPianoRoll);
+        removeChildComponent(&midiMessageLog);
     }
 
     if (button == &clearButton) {
@@ -122,7 +117,7 @@ void MainContentComponent::buttonClicked(Button* button) {
 void MainContentComponent::showMidiMessage(const MidiMessage& message) {
     if (messageLogButton.getToggleState())
         midiMessageLog.addMidiMessage(message);
-    else if (pianoRollButton.getToggleState())
+    else
         midiPianoRoll.addMidiMessage(message);
 }
 
@@ -150,7 +145,13 @@ void MainContentComponent::handleNoteOff(MidiKeyboardState*, int chan, int note,
 // NOTE: this callback is not called by the main message thread so it should not
 // modify any GUI components directly without locking the main message thread.
 void MainContentComponent::handleIncomingMidiMessage(MidiInput* source, const MidiMessage& message) {
-    if (message.isNoteOn() || message.isNoteOff()) {
+    if (message.isActiveSense()) {
+        return;
+    } else if (quitting) {
+        return;
+    }
+
+    if (message.isNoteOnOrOff()) {
         keyboardState.processNextMidiEvent(message);
     } else {
         playMidiMessage(message);
